@@ -3,12 +3,23 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 // import { Pill, Phone, ShoppingCart, Bell, Calendar, Clock, Battery, X, Minus, Plus, Trash2, CreditCard, Menu } from 'lucide-react';
 import { Pill, ShoppingCart, X, Minus, Plus, Trash2, CreditCard, Menu, ChevronRight } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import ImagePreloader from './components/ImagePreloader';
 
 // Lazy load sections
 const HomeSection = lazy(() => import('./sections/HomeSection'));
 const ProductSection = lazy(() => import('./sections/ProductSection'));
 const AboutSection = lazy(() => import('./sections/AboutSection'));
 const ContactSection = lazy(() => import('./sections/ContactSection'));
+
+// Lista de todas las imágenes que necesitan ser precargadas
+const allImages = [
+  "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=2000",
+  "/images/mariab.png",
+  "/images/alberto.png",
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
+];
 
 interface CartItem {
   type: string;
@@ -36,6 +47,7 @@ function AppContent() {
   });
   const [isCartAnimating, setIsCartAnimating] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { language, setLanguage, t } = useLanguage();
 
   // Save cart items to localStorage whenever they change
@@ -58,14 +70,9 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // // Efecto para el scroll inicial
-  // useEffect(() => {
-  //   const navHeight = 64; // altura del nav bar
-  //   window.scrollTo({
-  //     // top: -navHeight,
-  //     behavior: 'instant'
-  //   });
-  // }, []);
+  const handleImagesLoaded = () => {
+    setIsLoading(false);
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -131,6 +138,9 @@ function AppContent() {
 
   return (
     <div className="max-w-screen mx-auto">
+      {/* Preloader de imágenes */}
+      <ImagePreloader images={allImages} onLoadComplete={handleImagesLoaded} />
+
       {/* Fixed Navigation */}
       <nav className={`fixed top-0 left-0 right-0 ${
         isMobileMenuOpen ? 'bg-white' : 'bg-white'
@@ -321,22 +331,38 @@ function AppContent() {
                   </button>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-4 pb-4">
+                  <button
+                    onClick={toggleCart}
+                    className={`fixed left-0 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 p-2 hover:bg-blue-400 rounded-r-full transition-all duration-300 bg-blue-200 shadow-md z-[101] ${
+                      isCartOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                    aria-label="Cerrar carrito"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
                   {cartItems.map((item, index) => (
                     <div
                       key={index}
-                      className="bg-gray-50 p-4 rounded-lg transform transition-all duration-200 hover:shadow-md"
+                      className="bg-gray-100 p-4 rounded-lg transform transition-all duration-200 hover:shadow-md"
                     >
                       <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <h3 className="font-semibold text-gray-800">RemindWell {t(`cart.type.${item.type}`)}</h3>
-                          <p className="text-sm text-gray-600">
-                            {item.doses === 'three-times' ? t('cart.doses.threeTimes') :
-                             item.doses === 'morning' ? t('cart.doses.morning') : t('cart.doses.night')}
-                          </p>
-                          <p className="text-sm text-gray-600">
-                            {item.light === 'with-light' ? t('cart.light.with') : t('cart.light.without')}
-                          </p>
+                        <div className="flex items-start space-x-4">
+                          <img 
+                            src="/images/product.png" 
+                            alt="RemindWell Pillie" 
+                            className="w-16 h-16 object-cover rounded-lg"
+                          />
+                          <div>
+                            <h3 className="font-semibold text-gray-800">Pillie {t(`cart.type.${item.type}`)}</h3>
+                            <p className="text-sm text-gray-600">
+                              {item.doses === 'three-times' ? t('cart.doses.threeTimes') :
+                               item.doses === 'morning' ? t('cart.doses.morning') : t('cart.doses.night')}
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {item.light === 'with-light' ? t('cart.light.with') : t('cart.light.without')}
+                            </p>
+                          </div>
                         </div>
                         <button
                           onClick={() => removeFromCart(index)}
@@ -449,13 +475,25 @@ function AppContent() {
 
         {/* Main Content */}
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Cargando...</div>}>
-          <HomeSection />
-          <ProductSection 
-            scrollToSection={scrollToSection}
-            addToCart={addToCart}
-          />
-          <AboutSection />
-          <ContactSection />
+          {isLoading ? (
+            <div className="min-h-screen flex items-center justify-center">
+              <img 
+                src="/images/favicon.svg" 
+                alt="Loading" 
+                className="w-8 h-8 animate-spin"
+              />
+            </div>
+          ) : (
+            <>
+              <HomeSection />
+              <ProductSection 
+                scrollToSection={scrollToSection}
+                addToCart={addToCart}
+              />
+              <AboutSection />
+              <ContactSection />
+            </>
+          )}
         </Suspense>
       </div>
     </div>
