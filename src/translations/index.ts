@@ -119,6 +119,9 @@ export const translations = {
       price: {
         perUnit: "€/ud."
       }
+    },
+    footer: {
+      rights: "Todos los derechos reservados"
     }
   },
   en: {
@@ -241,6 +244,9 @@ export const translations = {
       price: {
         perUnit: "€/unit"
       }
+    },
+    footer: {
+      rights: "All rights reserved"
     }
   }
 }; 

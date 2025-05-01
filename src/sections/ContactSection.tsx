@@ -6,7 +6,7 @@ const ContactSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="h-screen flex items-center justify-center bg-blue-50 snap-start">
+    <section id="contact" className="h-screen relative flex items-center justify-center bg-blue-50 snap-start">
       <div className="min-w-[90%] max-w-screen mx-auto px-4 pt-3 pb-12">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
@@ -58,6 +58,11 @@ const ContactSection = () => {
           </form>
         </div>
       </div>
+      <footer className="absolute bottom-0 left-0 right-0 py-4 bg-white border-t shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 text-center text-gray-600 font-bold">
+          <p>© {new Date().getFullYear()} RemindWell. {t('footer.rights')}</p>
+        </div>
+      </footer>
     </section>
   );
 };
