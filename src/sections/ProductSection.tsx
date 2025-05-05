@@ -1,5 +1,5 @@
 // import React from 'react';
-import { Bell, Calendar, Clock, Battery, ShoppingCart } from 'lucide-react';
+import { Bell, Calendar, Clock, Battery, ShoppingCart, Leaf, Accessibility } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useState } from 'react';
 
@@ -30,8 +30,8 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
           </h2>
 
           {/* Versión móvil */}
-          <div className="lg:hidden w-full flex flex-col items-center">
-            <div className="px-4 sm:px-8 pb-6 w-full max-w-2xl">
+          <div className="lg:hidden w-[90%] flex flex-col items-center">
+            <div className="w-full max-w-2xl">
               <img
                 src="/images/product.png"
                 alt="RemindWell Features"
@@ -39,14 +39,14 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
                 loading="lazy"
               />
             </div>
-            <div className="space-y-6 w-full max-w-2xl">
+            <div className="space-y-6 w-full max-w-2xl mt-6">
               <div className="flex items-start space-x-3">
                 <div className="bg-blue-100 p-2 rounded-full shrink-0">
                   <Bell className="text-blue-600 w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-gray-800">{t('product.features.reminders.title')}</h3>
-                  <p className="text-sm text-gray-600">{t('product.features.reminders.description')}</p>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.reminders.description')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -55,7 +55,43 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-gray-800">{t('product.features.organization.title')}</h3>
-                  <p className="text-sm text-gray-600">{t('product.features.organization.description')}</p>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.organization.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full shrink-0">
+                  <Accessibility className="text-blue-600 w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-gray-800">{t('product.features.accessibility.title')}</h3>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.accessibility.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full shrink-0">
+                  <Clock className="text-blue-600 w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-gray-800">{t('product.features.multiple.title')}</h3>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.multiple.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full shrink-0">
+                  <Battery className="text-blue-600 w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-gray-800">{t('product.features.battery.title')}</h3>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.battery.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="bg-blue-100 p-2 rounded-full shrink-0">
+                  <Leaf className="text-blue-600 w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-gray-800">{t('product.features.recycled.title')}</h3>
+                  <p className="text-sm text-gray-600 text-justify">{t('product.features.recycled.description')}</p>
                 </div>
               </div>
             </div>
@@ -72,29 +108,38 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
           {/* Versión escritorio */}
           <div className="hidden lg:flex lg:flex-row items-center justify-center gap-12 w-full">
             {/* Columna izquierda */}
-            <div className="w-1/4 space-y-8">
-              <div className="flex items-start space-x-4">
+            <div className="w-[35%] space-y-8">
+              <div className="flex items-start space-x-4 h-28">
                 <div className="bg-blue-100 p-3 rounded-full shrink-0">
                   <Bell className="text-blue-600 w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">{t('product.features.reminders.title')}</h3>
-                  <p className="text-gray-600">{t('product.features.reminders.description')}</p>
+                  <p className="text-gray-600 text-justify">{t('product.features.reminders.description')}</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 h-28">
                 <div className="bg-blue-100 p-3 rounded-full shrink-0">
                   <Calendar className="text-blue-600 w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">{t('product.features.organization.title')}</h3>
-                  <p className="text-gray-600">{t('product.features.organization.description')}</p>
+                  <p className="text-gray-600 text-justify">{t('product.features.organization.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 h-28">
+                <div className="bg-blue-100 p-3 rounded-full shrink-0">
+                  <Accessibility className="text-blue-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">{t('product.features.accessibility.title')}</h3>
+                  <p className="text-gray-600 text-justify">{t('product.features.accessibility.description')}</p>
                 </div>
               </div>
             </div>
 
             {/* Columna central con imagen y botón */}
-            <div className="w-2/4 flex flex-col items-center gap-8">
+            <div className="w-3/5 flex flex-col items-center gap-8">
               <img
                 src="/images/product.png"
                 alt="RemindWell Features"
@@ -110,23 +155,32 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
             </div>
 
             {/* Columna derecha */}
-            <div className="w-1/4 space-y-8">
-              <div className="flex items-start space-x-4">
+            <div className="w-[35%] space-y-8">
+              <div className="flex items-start space-x-4 h-28">
                 <div className="bg-blue-100 p-3 rounded-full shrink-0">
                   <Clock className="text-blue-600 w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">{t('product.features.multiple.title')}</h3>
-                  <p className="text-gray-600">{t('product.features.multiple.description')}</p>
+                  <p className="text-gray-600 text-justify">{t('product.features.multiple.description')}</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 h-28">
                 <div className="bg-blue-100 p-3 rounded-full shrink-0">
                   <Battery className="text-blue-600 w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800">{t('product.features.battery.title')}</h3>
-                  <p className="text-gray-600">{t('product.features.battery.description')}</p>
+                  <p className="text-gray-600 text-justify">{t('product.features.battery.description')}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4 h-28">
+                <div className="bg-blue-100 p-3 rounded-full shrink-0">
+                  <Leaf className="text-blue-600 w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">{t('product.features.recycled.title')}</h3>
+                  <p className="text-gray-600 text-justify">{t('product.features.recycled.description')}</p>
                 </div>
               </div>
             </div>

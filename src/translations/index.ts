@@ -29,6 +29,14 @@ export const translations = {
         battery: {
           title: "Larga Duración",
           description: "Batería de larga duración y fácil recarga mediante USB."
+        },
+        accessibility: {
+          title: "Accesibilidad Universal",
+          description: "Incluye sistema braille para facilitar su uso a personas con discapacidad visual."
+        },
+        recycled: {
+          title: "Material Sostenible",
+          description: "Fabricado con plástico 100% reciclado, contribuyendo a un futuro más sostenible."
         }
       },
       configure: "Configurar mi Pillie",
@@ -154,6 +162,14 @@ export const translations = {
         battery: {
           title: "Long Battery Life",
           description: "Long-lasting battery and easy USB charging."
+        },
+        accessibility: {
+          title: "Universal Accessibility",
+          description: "Includes braille system to facilitate use for people with visual disabilities."
+        },
+        recycled: {
+          title: "Sustainable Material",
+          description: "Made with 100% recycled plastic, contributing to a more sustainable future."
         }
       },
       configure: "Configure my Pillie",
