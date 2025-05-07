@@ -37,7 +37,7 @@ const AboutSection = () => {
             <div className="flex flex-col items-center">
               <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl mb-3">
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                  src="/images/alejandra.png"
                   alt="Alejandra Blanco"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -49,7 +49,7 @@ const AboutSection = () => {
             <div className="flex flex-col items-center">
               <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl mb-3">
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                  src="/images/laurac.png"
                   alt="Laura Charlán"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -61,7 +61,7 @@ const AboutSection = () => {
             <div className="flex flex-col items-center">
               <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl mb-3">
                 <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                  src="/images/laurab.png"
                   alt="Laura Bombarda"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -85,7 +85,7 @@ const AboutSection = () => {
             <div className="flex flex-col items-center">
               <div className="w-40 h-40 rounded-full overflow-hidden shadow-xl mb-3">
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
+                  src="/images/maria.png"
                   alt="María Alarcón"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -128,7 +128,7 @@ const AboutSection = () => {
               <div className="text-center">
                 <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                    src="/images/alejandra.png"
                     alt="Alejandra Blanco"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -143,7 +143,7 @@ const AboutSection = () => {
               <div className="text-center">
                 <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                    src="/images/laurac.png"
                     alt="Laura Charlán"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -155,7 +155,7 @@ const AboutSection = () => {
               <div className="text-center">
                 <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                    src="/images/laurab.png"
                     alt="Laura Bombarda"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -182,7 +182,7 @@ const AboutSection = () => {
               <div className="text-center">
                 <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000"
+                    src="/images/maria.png"
                     alt="María Alarcón"
                     className="w-full h-full object-cover"
                     loading="lazy"
