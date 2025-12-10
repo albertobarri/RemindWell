@@ -141,7 +141,7 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
             {/* Columna central con imagen y botón */}
             <div className="w-3/5 flex flex-col items-center gap-8">
               <img
-                src="/images/product.png"
+                src="/images/product2.png"
                 alt="RemindWell Features"
                 className="rounded-xl shadow-xl w-full max-w-5xl"
                 loading="lazy"
