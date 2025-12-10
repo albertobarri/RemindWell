@@ -33,7 +33,7 @@ const ProductSection = ({ scrollToSection, addToCart }: ProductSectionProps) => 
           <div className="lg:hidden w-[90%] flex flex-col items-center">
             <div className="w-full max-w-2xl">
               <img
-                src="/images/product.png"
+                src="/images/product2.png"
                 alt="RemindWell Features"
                 className="rounded-xl shadow-2xl mx-auto w-full"
                 loading="lazy"
